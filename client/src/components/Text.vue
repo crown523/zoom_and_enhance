@@ -52,13 +52,16 @@ export default {
     addSymbol(symbol) {
       //console.log(window.getSelection().toString());
       let txtarea = document.getElementById("message");
-      console.log(txtarea.selectionStart);
-      console.log(txtarea.selectionEnd);
-      console.log(this.text.substring(txtarea.selectionStart, txtarea.selectionEnd));
-      this.text = (this.text.substring(0, txtarea.selectionStart)+symbol
-      +this.text.substring(txtarea.selectionStart, txtarea.selectionEnd)+symbol
-      +this.text.substring(txtarea.selectionEnd, this.text.length));
-      return window.getSelection().toString();
+      let start = txtarea.selectionStart;
+      let end = txtarea.selectionEnd;
+      console.log(start);
+      console.log(end);
+      console.log(this.text.substring(start, end));
+      if (start != end) {
+        this.text = (this.text.substring(0, start)+symbol+this.text.substring(start, end)+symbol+this.text.substring(end, this.text.length));
+        return window.getSelection().toString();
+      }
+      
     },
     bold() {
       this.addSymbol("*");
