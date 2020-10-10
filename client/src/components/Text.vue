@@ -1,38 +1,38 @@
 <template>
   <div class="outer col-4">
-    <div>
-      <button
+    <div id="toolbar">
+      <b-button v-b-tooltip.hover title="Bold (Shift-B)"
         dark
         @click.stop="bold()"
         icon
         :color=grey
       >
         Bold 
-      </button>
-      <button
+      </b-button>
+      <b-button v-b-tooltip.hover title="Italicize (Shift-I)"
         dark
         @click.stop="italicize()"
         icon
         :color=grey
       >
         Italicize 
-      </button>
-      <button
+      </b-button>
+      <b-button v-b-tooltip.hover title="Highlight (Shift-H)"
         dark
         @click.stop="highlight()"
         icon
         :color=grey
       >
         Highlight
-      </button>
-      <button
+      </b-button>
+      <b-button v-b-tooltip.hover title="Render (Shift-R)"
         dark
         @click.stop="render()"
         icon
         :color=grey
       >
         Render
-      </button>
+      </b-button>
     </div>
     <textarea
       id="message"
@@ -95,5 +95,12 @@ export default {
 }
 textarea {
   height: 60vh;
+}
+#toolbar {
+  display: flex;
+  flex-direction: row;
+}
+button {
+  margin-right: 10px;
 }
 </style>
