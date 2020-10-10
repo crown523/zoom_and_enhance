@@ -1,0 +1,27 @@
+{
+  "name": "zoom_and_enchance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crown523/zoom_and_enchance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crown523/zoom_and_enchance/issues"
+  },
+  "homepage": "https://github.com/crown523/zoom_and_enchance#readme",
+  "dependencies": {
+    "@vue/cli": "^4.5.7",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  }
+}
