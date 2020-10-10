@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // access through this.$store.data.text etc
+    // access through this.$store.state.text etc
     data() {
       return { text: "" }
     }
