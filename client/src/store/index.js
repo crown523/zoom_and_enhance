@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     // access through this.$store.data.text etc
     data() {
-      return { text: "", renderedTextArray: [] }
+      return { text: "" }
     }
   },
   mutations: {
@@ -15,9 +15,6 @@ export default new Vuex.Store({
     updateText: (state, payload) => {
       state.text = payload;
     },
-    updateRenderedTextArray: (state, payload) => {
-      state.renderedTextArray = payload;
-    }
   },
   actions: {},
   modules: {}
