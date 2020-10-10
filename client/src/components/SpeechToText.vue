@@ -22,10 +22,6 @@ export default {
     lang: {
       type: String,
       default: "en-US"
-    },
-    text: {
-      type: [String, null],
-      required: true
     }
   },
   data() {
@@ -47,10 +43,6 @@ export default {
     endSpeechRecognition() {
       recognition.stop();
       this.toggle = false;
-      this.$emit("speechendtoText", {
-        sentences: this.sentences,
-        text: this.sentences.join(". ")
-      });
     },
     startSpeechRecognition() {
       if (!recognition) {
@@ -85,9 +77,9 @@ export default {
           this.sentences.push(
             this.capitalizeFirstLetter(this.runtimeTranscription)
           );
-          this.$emit(
-            "update:text",
-            `${this.text}${this.sentences.slice(-1)[0]}. `
+          this.$store.commit(
+            "updateText",
+            `${this.$store.state.text}. ${this.sentences.slice(-1)[0]}`
           );
         }
         this.runtimeTranscription = "";
