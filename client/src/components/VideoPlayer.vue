@@ -26,10 +26,13 @@
         allow="microphone; camera"
       ></iframe>
     </div>
+    <speech-to-text></speech-to-text>
   </div>
 </template>
 
 <script>
+import SpeechToText from "./SpeechToText.vue";
+
 export default {
   data() {
     return {
@@ -47,6 +50,9 @@ export default {
         return this.vidURL;
       }
     }
+  },
+  components: {
+    speechToText: SpeechToText
   }
 };
 </script>
