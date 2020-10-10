@@ -5,7 +5,7 @@
         dark
         @click.stop="bold()"
         icon
-        :color='grey'
+        :color=grey
       >
         Bold 
       </button>
@@ -13,7 +13,7 @@
         dark
         @click.stop="italicize()"
         icon
-        :color='grey'
+        :color=grey
       >
         Italicize 
       </button>
@@ -21,7 +21,7 @@
         dark
         @click.stop="highlight()"
         icon
-        :color='grey'
+        :color=grey
       >
         Highlight
       </button>
@@ -29,9 +29,9 @@
         dark
         @click.stop="render()"
         icon
-        :color='grey'
+        :color=grey
       >
-        Highlight
+        Render
       </button>
     </div>
     <textarea
@@ -56,20 +56,27 @@ export default {
     };
   },
   methods: {
-    getSelection() {
-      console.log(window.getSelection);
-      return window.getSelection();
+    addSymbol(symbol) {
+      //console.log(window.getSelection().toString());
+      let txtarea = document.getElementById("message");
+      console.log(txtarea.selectionStart);
+      console.log(txtarea.selectionEnd);
+      console.log(this.text.substring(txtarea.selectionStart, txtarea.selectionEnd));
+      this.text = (this.text.substring(0, txtarea.selectionStart)+symbol
+      +this.text.substring(txtarea.selectionStart, txtarea.selectionEnd)+symbol
+      +this.text.substring(txtarea.selectionEnd, this.text.length));
+      return window.getSelection().toString();
     },
     bold() {
-      let text = getSelection();
+      this.addSymbol("*");
 
     },
     italicize() {
-      let text = getSelection();
+      this.addSymbol("_");
 
     },
     highlight() {
-      let text = getSelection();
+      this.addSymbol("/");
 
     }
   }
