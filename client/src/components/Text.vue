@@ -6,22 +6,25 @@
       class="form-control"
       v-model="text"
     ></textarea>
-    <speech-to-text :text.sync="text"></speech-to-text>
   </div>
 </template>
 
 <script>
-import SpeechToText from "./SpeechToText.vue";
 export default {
-  components: {
-    speechToText: SpeechToText
-  },
   data() {
-    return {
-      text: ""
-    };
+    return {};
   },
-  methods: {}
+  methods: {},
+  computed: {
+    text: {
+      get() {
+        return this.$store.state.text;
+      },
+      set(value) {
+        this.$store.commit("updateText", value);
+      }
+    }
+  }
 };
 </script>
 
