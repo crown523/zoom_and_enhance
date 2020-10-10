@@ -1,32 +1,15 @@
 <template>
-  <v-card>
-    <v-card-text>
-      <v-layout row wrap justify-space-around>
-        <v-flex xs8 sm9 text-xs-center>
-          <p v-if="error" class="grey--text">{{ error }}</p>
-          <p v-else class="mb-0">
-            <span v-for="(sentence, index) in sentences" :key="index"
-              >{{ sentence }}.
-            </span>
-            <span>{{ runtimeTranscription }}</span>
-          </p>
-        </v-flex>
-        <v-flex xs2 sm1 text-xs-center>
-          <v-btn
-            dark
-            @click.stop="
-              toggle ? endSpeechRecognition() : startSpeechRecognition()
-            "
-            icon
-            :color="!toggle ? 'grey' : speaking ? 'red' : 'red darken-3'"
-            :class="{ 'animated infinite pulse': toggle }"
-          >
-            <v-icon>{{ toggle ? "mic_off" : "mic" }}</v-icon>
-          </v-btn>
-        </v-flex>
-      </v-layout>
-    </v-card-text>
-  </v-card>
+  <div>
+    <button
+      dark
+      @click.stop="toggle ? endSpeechRecognition() : startSpeechRecognition()"
+      icon
+      :color="!toggle ? 'grey' : speaking ? 'red' : 'red darken-3'"
+      :class="{ 'animated infinite pulse': toggle }"
+    >
+      {{ toggle ? "mic_off" : "mic_on" }}
+    </button>
+  </div>
 </template>
 
 <script>
@@ -64,7 +47,7 @@ export default {
     endSpeechRecognition() {
       recognition.stop();
       this.toggle = false;
-      this.$emit("speechend", {
+      this.$emit("speechendtoText", {
         sentences: this.sentences,
         text: this.sentences.join(". ")
       });
@@ -84,6 +67,7 @@ export default {
       });
 
       recognition.addEventListener("speechend", () => {
+        console.log("on speechend event");
         this.speaking = false;
       });
 
@@ -96,6 +80,7 @@ export default {
       });
 
       recognition.addEventListener("end", () => {
+        console.log("on end event");
         if (this.runtimeTranscription !== "") {
           this.sentences.push(
             this.capitalizeFirstLetter(this.runtimeTranscription)
