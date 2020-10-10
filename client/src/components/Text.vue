@@ -1,6 +1,11 @@
 <template>
   <div class="outer col-4">
-    <textarea id="message" class="form-control" v-model="text"></textarea>
+    <textarea
+      id="message"
+      rows="15"
+      class="form-control"
+      v-model="text"
+    ></textarea>
   </div>
 </template>
 
@@ -18,7 +23,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .outer {
-  height: 100%;
+  height: 60vh;
 }
 textarea {
   height: 60vh;

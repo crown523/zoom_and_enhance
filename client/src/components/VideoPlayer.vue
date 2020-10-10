@@ -1,17 +1,31 @@
 <template>
   <div class="outer col-6">
-    <input
-      class="form-control"
-      type="text"
-      placeholder="Enter URL here"
-      v-model="vidURL"
-    />
-    <iframe
-      class="form-control"
-      :src="vidURL"
-      title="W3Schools Free Online Web Tutorials"
+    <div class="row">
+      <input
+        class="form-control col-8"
+        type="text"
+        placeholder="Enter URL here"
+        v-model="vidURL"
+      />
+      <input
+        class="form-control col-4"
+        type="text"
+        placeholder="Or enter Zoom Meeting ID"
+        v-model="zoomID"
+      />
+    </div>
+    <div
+      class="iframe-container"
+      style="overflow: scroll; position: relative; height:60vh, border: 1px solid black"
     >
-    </iframe>
+      <iframe
+        class="form-control"
+        style="border:none; width: 100%;"
+        :src="iframeURL"
+        sandbox="allow-forms allow-scripts allow-same-origin"
+        allow="microphone; camera"
+      ></iframe>
+    </div>
   </div>
 </template>
 
@@ -19,8 +33,20 @@
 export default {
   data() {
     return {
-      vidURL: ""
+      vidURL: "",
+      zoomID: ""
     };
+  },
+  computed: {
+    iframeURL() {
+      if (this.zoomID != "") {
+        return (
+          "https://zoom.us/wc/" + this.zoomID + "/join?prefer=0&un=TWluZGF1Z2Fz"
+        );
+      } else {
+        return this.vidURL;
+      }
+    }
   }
 };
 </script>
@@ -31,7 +57,6 @@ export default {
   height: 60vh;
 }
 input {
-  width: 100%;
   margin-bottom: 10px;
 }
 iframe {
