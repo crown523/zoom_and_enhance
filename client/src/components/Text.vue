@@ -6,16 +6,43 @@
       class="form-control"
       v-model="text"
     ></textarea>
+    <v-container fluid>
+      <v-layout row wrap justify-center class="mt-4">
+        <v-flex xs12 sm10 text-xs-center>
+          <v-text-field label="The text" v-model="text" textarea></v-text-field>
+        </v-flex>
+        <v-flex xs12 sm8 md4 text-xs-center>
+          <speech-to-text
+            :text.sync="text"
+            @speechend="speechEnd"
+          ></speech-to-text>
+        </v-flex>
+        <v-flex xs12 text-xs-center class="mt-4">
+          {{ sentences }}
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 
 <script>
+import SpeechToText from "./SpeechToText.vue";
 export default {
+  components: {
+    speechToText: SpeechToText
+  },
   data() {
     return {
       text:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     };
+  },
+  methods: {
+    speechEnd({ sentences, text }) {
+      console.log("text", text);
+      console.log("sentences", sentences);
+      this.sentences = sentences;
+    }
   }
 };
 </script>
