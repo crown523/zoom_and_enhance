@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "zoomandenhance",
+  "private_key_id": "4cf4434c77448a31ddea322ecc150d3f461b4f32",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCZI5KR+xrOD0hM\n+9EClF3t3mbYzi8gRf9snQhdLR2i5WGbqHhTRTYkdbZftHuGm7E4aRvXz0OkzPx/\nmu7ubDPc2Y/rp7dv7iKWLPANsmpovcJwDOSB4paV1+fOW1OrpthmI/GKlP6mNpS0\n3CC7XYsWUGL/HzMa5sRVGvZxaAUHENphHOLGHilZXnmDRp5HfXTcnIsSaXzi33qu\n3H59EicuO8AbfLzmD0GHScJiVjTrA4upbymDBQwnN5B5gySnFhL+bsJhrqJKAjvr\nBHePXvg5k30/e+0hA2QXxcYzTBr9x3h/u3f/u3/5CEuvP3ucQkmZkiQDCtKcesan\n9yCha0ovAgMBAAECggEAFffh61or3rqXgx+uvKF/FgQNGfX+EbGo8jJWxFMYCMnC\nJlvVIxDvMuzGBFW2ULmeAzsk2OEtUYNsh3u44fAYwopdWI9/Q6nUQVnh9/0LwcnT\nDlLzJuTT+Fv4L4SvbJTrPz/RwzEblMmIrKdVdLt3G/TdNr8JjEbljFXpW5xx+DDM\nbDHowWpKVhb/BaXeaTbZydVL2tYhyCgXxSbDJKm34oOm0w03nqWLrStBJe+xnIwi\nnVbOR+s6iTI0MQVx3zvsHuncD9GxZemjAGfKlWNORLtGW7H2/UmfSN27SJ2JPbxe\nc+dTwGhiV3rEQZvGilYKAZqJYW+6vlI0nZrXusnSlQKBgQDGcbsFMbV/nJBH9mn1\n2P2HUq6Hp0QRi3/P94VSL7adKpxWemPZpVxzcBE94RK77PGz2oxq65rNhtmMHuNO\nHpfkoAZ5PW2ZEx8XfAXXJe6CJ37/uWWUSgXLLwn32QzJr0s6A53Btf9GoK+cWQmp\nGSPJevXf0iSI7t+Xdcnhq8BQiwKBgQDFjfj94QE159i2/EZ1Evy4tUptAv4xE1SB\nMqY5+Ti5gpEKK4goPizadfRrzWpsZGRmJu9jsU9pNzoTrZ3k3V+bK2SfvaVGtbVp\nkZGA/154w+38Lvv70PhFnSFChMH/MCKEYEQdheVEF0cycAJvke4QKSknO6OAh+9v\nTMSGaCPdbQKBgFkgFzjb/IIV1Q8c8rYCAMvYLJ6sVvvyRTMoHe6tkzy/OHv2eAX2\nKLGH8ZZzEbDpWBzI2SvkKSCJogc2kCwzvVBnNsEY/7IyTlKD1zOry5UVHArKP378\nR+HbfISeLQof+o9RtHadwMr9vCFiM96IdfQ1j1w4y0Pc1Pr3YfZC5xrFAoGAUz+l\nmk6T9QRTVaDvi+xJZQi4aUGmnkWYCa2vUKTOG5aCyjdX9CVnP1QPgNIaM70GdemY\nXXldjmgAaER0UfpbjIb3qzz+hdKStP7rwuFaDSf7hJbEBvSjeqphVqedHI1LLl9m\ntM40s8HfdcivrhZfrJ27wtWl68bcxhkig8Ukv+0CgYBFY3KJGY+BZmoRMoqczXx4\nEA5JVuoibgdlzY7CVnv8UKZZYWoOAXQE8y5yDzZx76zOAzwCekCKNas6QjCDi+gl\nNu2gt++jW2V4ra7FlzrLj2Q3vBlHmD8WgyS9Q3EZ0PE+9XASA2I/k2DSVFrn5RY7\ndBD0KQbB14haoAab0KSO7Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "kliang@zoomandenhance.iam.gserviceaccount.com",
+  "client_id": "102143283376587059347",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kliang%40zoomandenhance.iam.gserviceaccount.com"
+}
