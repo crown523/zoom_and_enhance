@@ -1,5 +1,5 @@
 <template>
-  <div class="outer col-6">
+  <div class="outer">
     <div class="row">
       <input
         class="form-control col-8"
@@ -14,7 +14,7 @@
         v-model="zoomID"
       />
     </div>
-    <div class="iframe-container">
+    <div class="iframe-container rounded">
       <iframe
         class="form-control"
         style="border:none; width: 100%;"
@@ -71,7 +71,7 @@ iframe {
   overflow: scroll;
   position: relative;
   height: 60vh;
-  border: 1px solid black;
+  border: 1px solid grey;
 }
 input {
   height: 58px;

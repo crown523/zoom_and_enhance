@@ -89,7 +89,7 @@
         v-b-tooltip.hover
         title="Export (Option/Alt-E)"
         dark
-        @click.stop="render()"
+        @click.stop="exportFile()"
         icon
       >
         <svg
@@ -189,6 +189,21 @@ export default {
     render() {
       eventBus.renderText(this.highlightColors[this.selectedColor]);
       $("#app").animate({ scrollLeft: 1000 }, 1000);
+    },
+    exportFile() {
+      var blob = new Blob([this.text], {
+        type: "text/plain;charset=utf-8"
+      });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.style.display = "none";
+      a.href = url;
+      // the filename you want
+      a.download = "zoom_and_enhance.md";
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      alert("Your file has downloaded!");
     }
   },
   computed: {

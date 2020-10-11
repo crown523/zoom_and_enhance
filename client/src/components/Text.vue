@@ -1,5 +1,5 @@
 <template>
-  <div class="outer col-4">
+  <div class="outer">
     <app-toolbar></app-toolbar>
     <textarea
       id="message"
