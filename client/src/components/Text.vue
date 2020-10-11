@@ -173,6 +173,7 @@ export default {
       let result = this.fixOverlapAndCheckValidity();
       if (result == null) {
         //success
+        this.error = false;
         eventBus.renderText(color);
         $("#app").animate({ scrollLeft: 1000 }, 1000);
       } else if (result == 't') {
