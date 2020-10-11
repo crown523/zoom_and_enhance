@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" style="margin-top: 10px">
     <app-speech-to-text></app-speech-to-text>
     <button v-if="toggle" class="btn btn-danger" @click="toggleImportance">
       <svg
@@ -50,7 +50,11 @@ export default {
   methods: {
     toggleImportance() {
       this.toggle = !this.toggle;
-      this.$store.commit("updateText", `${this.$store.state.text}*`);
+      if (this.toggle) {
+        this.$store.commit("updateText", `${this.$store.state.text}}`);
+      } else {
+        this.$store.commit("updateText", `${this.$store.state.text}{`);
+      }
     }
   }
 };

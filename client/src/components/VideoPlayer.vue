@@ -14,10 +14,7 @@
         v-model="zoomID"
       />
     </div>
-    <div
-      class="iframe-container"
-      style="overflow: scroll; position: relative; height:60vh, border: 1px solid black"
-    >
+    <div class="iframe-container">
       <iframe
         class="form-control"
         style="border:none; width: 100%;"
@@ -60,7 +57,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .outer {
-  height: 60vh;
+  height: 100vh;
 }
 input {
   margin-bottom: 10px;
@@ -69,5 +66,11 @@ iframe {
   width: 100%;
   height: 100%;
   height: 60vh;
+}
+.iframe-container {
+  overflow: scroll;
+  position: relative;
+  height: 60vh;
+  border: 1px solid black;
 }
 </style>
