@@ -1,4 +1,4 @@
-# client
+# Zoom and Enhance
 
 ## Project setup
 ```
