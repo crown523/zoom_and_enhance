@@ -1,8 +1,42 @@
 <template>
-  <div class="row" style="margin-top: 10px">
-    <app-speech-to-text :lang="selectedLang.code"></app-speech-to-text>
+  <div class="row myButtons" style="margin-top: 10px">
+    <div class="row">
+      <app-speech-to-text :lang="selectedLang.code"></app-speech-to-text>
+      <button v-if="toggle" class="btn btn-secondary" @click="toggleImportance">
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 16 16"
+          class="bi bi-chevron-bar-right"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"
+          />
+        </svg>
+        Mark as important
+      </button>
+      <button v-else class="btn btn-danger" @click="toggleImportance">
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 16 16"
+          class="bi bi-chevron-bar-left"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"
+          />
+        </svg>
+        Stop marking as important
+      </button>
+    </div>
     <div class="dropdown">
-      <button class="btn btn-secondary">
+      <button class="btn btn-info">
         <svg
           width="1em"
           height="1em"
@@ -26,38 +60,6 @@
         >
       </div>
     </div>
-    <button v-if="toggle" class="btn btn-secondary" @click="toggleImportance">
-      <svg
-        width="1em"
-        height="1em"
-        viewBox="0 0 16 16"
-        class="bi bi-chevron-bar-right"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"
-        />
-      </svg>
-      Mark as important
-    </button>
-    <button v-else class="btn btn-danger" @click="toggleImportance">
-      <svg
-        width="1em"
-        height="1em"
-        viewBox="0 0 16 16"
-        class="bi bi-chevron-bar-left"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"
-        />
-      </svg>
-      Stop marking as important
-    </button>
   </div>
 </template>
 
@@ -157,5 +159,13 @@ button {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+.myButtons {
+  display: flex;
+  justify-content: space-between;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
 }
 </style>

@@ -60,7 +60,8 @@ export default {
 
 <style scoped>
 .text-area {
-  min-height: calc(60vh + 58px);
+  height: calc(60vh + 58px);
+  overflow: scroll;
   background: #f7f7f7;
   padding: 30px;
 }
