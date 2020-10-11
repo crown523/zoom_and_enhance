@@ -142,7 +142,7 @@
 
 <script>
 import $ from "jquery";
-// import { eventBus } from "../main";
+import { eventBus } from "../main";
 
 export default {
   data() {
@@ -187,7 +187,7 @@ export default {
       this.addSymbol("/");
     },
     render() {
-      // do some emitting to the bus
+      eventBus.renderText(this.highlightColors[this.selectedColor]);
       $("#app").animate({ scrollLeft: 1000 }, 1000);
     }
   },
