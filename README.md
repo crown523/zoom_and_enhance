@@ -1,5 +1,7 @@
 # Zoom and Enhance
 
+_This project is created by Livia Zhu, Anna Wei, and Kyle Liang for 2020 Hack@Home hackathon._
+
 ## Inspiration
 If you’re a student right now (and we are), you know how difficult it is to watch lectures online, pay attention, and take notes. Zoom and Enhance is an accessible and convenient online platform that streamlines the note taking process for video lectures.
 
@@ -12,7 +14,7 @@ You sit down for your online lecture. If you have a zoom meeting ID, you'll put 
 We utilized Vue.js to make a single-page app, styled using Vue Bootstrap, integrated with the web speech API for the speech to text functionality, and utilized the RAKE.js package for rapid keyword extraction. We then deployed our app using Heroku.
 
 ## What's next for Zoom and Enhance
-Our team has many ideas for future features for Zoom and Enhance.
+Our team has many ideas for future features for Zoom and Enhance. One direction is richer support for key term identification, particularly localization of the identified terms within the text. Furthermore, the keyword extraction algorithm can be modified to take the academic relevance of words into account to more intelligently tailor this functionality to the academic context. Another future direction we have in mind is matching sections of notes to the corresponding sections of the video through timestamp, so that students can supplement their notes with the specific video clip for more integrated studying.
 
 ## Project setup
 ```
@@ -21,15 +23,5 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm run start
 ```
