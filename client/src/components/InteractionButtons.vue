@@ -1,18 +1,18 @@
 <template>
   <div class="row" style="margin-top: 10px">
     <app-speech-to-text></app-speech-to-text>
-    <button v-if="toggle" class="btn btn-danger" @click="toggleImportance">
+    <button v-if="toggle" class="btn btn-secondary" @click="toggleImportance">
       <svg
         width="1em"
         height="1em"
         viewBox="0 0 16 16"
-        class="bi bi-exclamation-circle-fill"
+        class="bi bi-chevron-bar-right"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           fill-rule="evenodd"
-          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+          d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"
         />
       </svg>
       Mark as important
@@ -22,13 +22,13 @@
         width="1em"
         height="1em"
         viewBox="0 0 16 16"
-        class="bi bi-exclamation-circle-fill"
+        class="bi bi-chevron-bar-left"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           fill-rule="evenodd"
-          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+          d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"
         />
       </svg>
       Stop marking as important

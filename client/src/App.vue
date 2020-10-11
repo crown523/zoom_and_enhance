@@ -3,9 +3,14 @@
     <app-nav></app-nav>
     <div class="row outer1 flex-nowrap" style="height: auto">
       <div class="col-1"></div>
-      <app-video-player></app-video-player>
-      <app-text></app-text>
-      <app-render-text class="col-5" style="height: 100px;"></app-render-text>
+      <app-video-player id="videoPlayer" class="col-6"></app-video-player>
+      <app-text class="col-4"></app-text>
+      <div class="col-1"></div>
+      <app-render-text
+        id="renderText"
+        class="col-5"
+        style="height: 100px;"
+      ></app-render-text>
       <div class="col-1"></div>
     </div>
   </div>
@@ -29,7 +34,7 @@ export default {
 
 <style>
 #app {
-  overflow-y: scroll;
+  overflow: scroll;
 }
 .outer1 {
   padding-top: 100px;

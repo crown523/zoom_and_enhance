@@ -5,8 +5,12 @@
       @click.stop="toggle ? endSpeechRecognition() : startSpeechRecognition()"
       icon
       :color="!toggle ? 'grey' : speaking ? 'red' : 'red darken-3'"
-      :class="{ 'animated infinite pulse': toggle }"
-      class="btn btn-primary"
+      :class="{
+        'animated infinite pulse': toggle,
+        'btn-secondary': !toggle,
+        'btn-primary': toggle
+      }"
+      class="btn"
     >
       <div v-if="!toggle">
         <svg
