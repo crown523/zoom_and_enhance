@@ -4,7 +4,7 @@
     <div class="alert alert-danger" v-if="error">this is an error</div>
     <textarea
       id="message"
-      rows="15"
+      rows="25"
       class="form-control"
       v-model="text"
     ></textarea>
