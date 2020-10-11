@@ -49,7 +49,6 @@
         Stop listening
       </div>
     </button>
-    {{ lang }}
   </div>
 </template>
 
