@@ -1,10 +1,16 @@
 <template>
   <div id="app">
     <app-nav></app-nav>
-    <div class="row outer1" style="height: auto">
+    <div class="row outer1 flex-nowrap" style="height: auto">
       <div class="col-1"></div>
-      <app-video-player></app-video-player>
-      <app-text></app-text>
+      <app-video-player id="videoPlayer" class="col-6"></app-video-player>
+      <app-text class="col-4"></app-text>
+      <div class="col-1"></div>
+      <app-render-text
+        id="renderText"
+        class="col-5"
+        style="height: 100px;"
+      ></app-render-text>
       <div class="col-1"></div>
     </div>
   </div>
@@ -14,18 +20,23 @@
 import Nav from "./components/Nav.vue";
 import VideoPlayer from "./components/VideoPlayer.vue";
 import Text from "./components/Text.vue";
+import RenderText from "./components/RenderText.vue";
 
 export default {
   components: {
     appNav: Nav,
     appVideoPlayer: VideoPlayer,
-    appText: Text
+    appText: Text,
+    appRenderText: RenderText
   }
 };
 </script>
 
 <style>
+#app {
+  overflow: scroll;
+}
 .outer1 {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 </style>

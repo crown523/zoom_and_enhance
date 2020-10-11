@@ -26,14 +26,13 @@ Vue.config.productionTip = false;
 // },
 
 
-// export const eventBus = new Vue({
-//   methods: {
-//     renderText(serverData) {
-//       console.log(serverData);
-//       this.$emit('serverClicked', serverData);
-//     }
-//   }
-// });
+export const eventBus = new Vue({
+  methods: {
+    renderText(color) {
+      this.$emit('renderClicked', color);
+    }
+  }
+});
 
 new Vue({
   store,

@@ -1,39 +1,6 @@
 <template>
-  <div class="outer col-4">
-    <div id="toolbar">
-      <b-button v-b-tooltip.hover title="Bold (Shift-B)"
-        dark
-        @click.stop="bold()"
-        @keypress.alt.66="bold"
-        icon
-      >
-        Bold 
-      </b-button>
-      <b-button v-b-tooltip.hover title="Italicize (Shift-I)"
-        dark
-        @click.stop="italicize()"
-        @keypress.alt.73="italicize"
-        icon
-      >
-        Italicize 
-      </b-button>
-      <b-button v-b-tooltip.hover title="Highlight (Shift-H)"
-        dark
-        @click.stop="highlight()"
-        @keypress.alt.72="highlight"
-        icon
-      >
-        Highlight
-      </b-button>
-      <b-button v-b-tooltip.hover title="Render (Shift-R)"
-        dark
-        @click.stop="render()"
-        @keypress.alt.82="render"
-        icon
-      >
-        Render
-      </b-button>
-    </div>
+  <div class="outer">
+    <app-toolbar></app-toolbar>
     <textarea
       id="message"
       rows="15"
@@ -44,6 +11,8 @@
 </template>
 
 <script>
+import Toolbar from "./Toolbar.vue";
+
 export default {
   data() {
     return {};
@@ -200,7 +169,10 @@ export default {
             break;
         }
       }
-    });
+    })
+  },
+  components: {
+    appToolbar: Toolbar
   }
 };
 </script>
