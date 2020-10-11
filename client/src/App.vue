@@ -5,6 +5,10 @@
       <div class="col-1"></div>
       <app-video-player></app-video-player>
       <app-text></app-text>
+      <app-render-text
+        class="col-5"
+        style="height: 100px; background-color: green"
+      ></app-render-text>
       <div class="col-5" style="height: 100px; background-color: green"></div>
       <div class="col-1"></div>
     </div>
@@ -15,12 +19,14 @@
 import Nav from "./components/Nav.vue";
 import VideoPlayer from "./components/VideoPlayer.vue";
 import Text from "./components/Text.vue";
+import RenderText from "./components/RenderText.vue";
 
 export default {
   components: {
     appNav: Nav,
     appVideoPlayer: VideoPlayer,
-    appText: Text
+    appText: Text,
+    appRenderText: RenderText
   }
 };
 </script>
