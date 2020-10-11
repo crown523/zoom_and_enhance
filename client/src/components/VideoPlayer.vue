@@ -10,7 +10,7 @@
       <input
         class="form-control col-4"
         type="text"
-        placeholder="Or enter Zoom Meeting ID"
+        placeholder="Or Zoom Meeting ID"
         v-model="zoomID"
       />
     </div>
@@ -72,5 +72,8 @@ iframe {
   position: relative;
   height: 60vh;
   border: 1px solid black;
+}
+input {
+  height: 58px;
 }
 </style>

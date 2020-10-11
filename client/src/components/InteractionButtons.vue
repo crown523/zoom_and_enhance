@@ -51,9 +51,9 @@ export default {
     toggleImportance() {
       this.toggle = !this.toggle;
       if (this.toggle) {
-        this.$store.commit("updateText", `${this.$store.state.text}}`);
+        this.$store.commit("updateText", `${this.$store.state.text}|`);
       } else {
-        this.$store.commit("updateText", `${this.$store.state.text}{`);
+        this.$store.commit("updateText", `${this.$store.state.text}|`);
       }
     }
   }
