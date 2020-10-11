@@ -141,6 +141,7 @@ export default {
       if (!this.checkValidity()) {
         this.error = true;
       } else {
+        this.error = false;
         eventBus.renderText(color);
         $("#app").animate({ scrollLeft: 1000 }, 1000);
       }

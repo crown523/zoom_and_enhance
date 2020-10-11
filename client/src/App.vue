@@ -5,12 +5,7 @@
       <div class="col-1"></div>
       <app-video-player id="videoPlayer" class="col-6"></app-video-player>
       <app-text class="col-4"></app-text>
-      <div class="col-1"></div>
-      <app-render-text
-        id="renderText"
-        class="col-5"
-        style="height: 100px;"
-      ></app-render-text>
+      <app-render-text id="renderText" class="col-6"></app-render-text>
       <div class="col-1"></div>
     </div>
   </div>
