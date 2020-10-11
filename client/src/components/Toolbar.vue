@@ -5,7 +5,7 @@
         <b-button
           class="btn-light"
           v-b-tooltip.hover
-          title="Bold (Option/Alt-B)"
+          title="Bold (Control-B)"
           dark
           @click.stop="bold()"
           icon
@@ -26,7 +26,7 @@
         <b-button
           class="btn-light"
           v-b-tooltip.hover
-          title="Italicize (Option/Alt-I)"
+          title="Italicize (Control-I)"
           dark
           @click.stop="italicize()"
           icon
@@ -48,7 +48,7 @@
           class="btn-light"
           :style="{ backgroundColor: highlightColors[selectedColor] }"
           v-b-tooltip.hover
-          title="Highlight (Option/Alt-H)"
+          title="Highlight (Control-H)"
           dark
           @click.stop="highlight()"
           icon
@@ -87,7 +87,7 @@
       <b-button
         class="btn-success"
         v-b-tooltip.hover
-        title="Export (Option/Alt-E)"
+        title="Export"
         dark
         @click.stop="exportFile()"
         icon
@@ -113,7 +113,7 @@
       <b-button
         class="btn-info"
         v-b-tooltip.hover
-        title="Render (Option/Alt-R)"
+        title="Render (Control-R)"
         dark
         @click.stop="render()"
         icon
