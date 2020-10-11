@@ -4,7 +4,7 @@
     <div class="alert alert-danger" v-if="error">{{ errorMessage }}</div>
     <textarea
       id="message"
-      rows="25"
+      rows="20"
       class="form-control"
       v-model="text"
     ></textarea>
