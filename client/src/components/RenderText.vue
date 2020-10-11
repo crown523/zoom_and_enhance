@@ -1,34 +1,64 @@
 <template>
-  <div>
-    <p>
-      Here is an example of <mark>highlighted text</mark> using the tag
-       <i>This text is italic</i> 
-        <b>This text is bold</b> 
-        Here is an example of <mark1>highlighted mark1 text</mark1> using the tag
+<div>
+    <p id="render-text-area">
     </p>
   </div>
 </template>
 
 
 <script>
-//import { eventBus } from "../../main";
+import { eventBus } from "../main";
 export default {
-
-  methods: {
-    // renderClicked() {
-    //     eventBus.$on("renderClicked", (text) => {
-    //         //this.texttoberendered = text
-    // })
-    // }
-
+    data() {
+        return {
+            highlightColor: "",
+            highlightTextColor: "black"
+        };
+    },
+    created(){
+        eventBus.$on("renderClicked", (color) => { 
+            let textData = this.$store.state.text;
+            let bStarted = false;
+            let iStarted = false;
+            let hStarted = false;
+            let renderedStr = "";
+            for (let c of textData) {
+                if (c == "*") {
+                    bStarted ? renderedStr += "</b>" : renderedStr += "<b>";
+                    bStarted = !bStarted;
+                    //  block of code to be executed if condition1 is true
+                } else if (c=="_") {
+                    iStarted ? renderedStr += "</i>" : renderedStr += "<i>";
+                    iStarted = !iStarted;
+                } else if (c=="|") {
+                    hStarted ? renderedStr += "</mark>" : renderedStr += "<mark>";
+                    hStarted = !hStarted;
+                } else {
+                    renderedStr += c
+                }
+            }
+            document.getElementById('render-text-area').innerHTML = renderedStr;
+            // let hslarray = color.split(','); // hsl(120,100%,50%)
+            // if(){
+            //     this.highlightTextColor = "white" 
+            // } else{
+            //     this.highlightTextColor = "black";
+            // }
+            let marks = document.querySelectorAll("mark")
+            if (marks != null){
+                marks.forEach(function(mark) { mark.style.background = color; });
+            }
+        })
   }
 };
 
 </script>
 
+
 <style scoped>
-    mark1 {
-    background-color: red;
-    color: black;
-    }
+#render-text-area{
+    text-indent: 10px;
+    border-style: outset;
+    border-width: 1px;
+}
 </style>
