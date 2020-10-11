@@ -77,7 +77,7 @@ export default {
       }
       this.removeRedundancy();
     },
-    checkValidity() {
+    fixOverlapAndCheckValidity() {
       //custom method for delimiter checking, uses stack + boolean for each symbol type
       let stack = [];
       let boldOpen = false;
@@ -112,38 +112,79 @@ export default {
           (italOpen && x == "_") ||
           (hiliOpen && x == "|")
         ) {
-          if (stack.length == 0) return false;
+          let prev = stack.pop(stack.length - 1);
           switch (x) {
             case "*":
-              x = stack.pop(stack.length - 1);
-              if (x == "_" || x == "|") return false;
+              if (prev == "_" || prev == "|") {
+                if (stack.length - stack.indexOf(x) > 1) {
+                  return 't';
+                }
+                this.text =
+                this.text.slice(0, i) + prev +
+                this.text.charAt(i) + prev +
+                this.text.slice(i + 1);
+                stack.push(prev);
+                i++;
+              }
               boldOpen = false;
               break;
 
             case "_":
-              x = stack.pop(stack.length - 1);
-              if (x == "*" || x == "|") return false;
+              if (prev == "*" || prev == "|") {
+                if (stack.length - stack.indexOf(x) > 1) {
+                  return 't';
+                }
+                this.text =
+                this.text.slice(0, i) + prev +
+                this.text.charAt(i) + prev +
+                this.text.slice(i + 1);
+                stack.push(prev);
+                i++;
+              }
               italOpen = false;
               break;
 
             case "|":
-              x = stack.pop(stack.length - 1);
-              if (x == "*" || x == "_") return false;
+              if (prev == "*" || prev == "_") {
+                if (stack.length - stack.indexOf(x) > 1) {
+                  return 't';
+                }
+                this.text =
+                this.text.slice(0, i) + prev +
+                this.text.charAt(i) + prev +
+                this.text.slice(i + 1);
+                stack.push(prev);
+                i++;
+              }
               hiliOpen = false;
               break;
           }
         }
       }
       // Check Empty Stack
-      return stack.length == 0;
+      // missing opening/closing if false
+      if (stack.length == 0) {
+        return null;
+      } else {
+        return stack[stack.length - 1];
+      }
     },
     render(color) {
-      if (!this.checkValidity()) {
-        this.error = true;
-      } else {
+      let result = this.fixOverlapAndCheckValidity();
+      if (result == null) {
+        //success
         this.error = false;
         eventBus.renderText(color);
         $("#app").animate({ scrollLeft: 1000 }, 1000);
+      } else if (result == 't') {
+        console.log("triple overlap type error");
+        this.error = true;
+      } else {
+        //TODO: make these different
+        //missing delimiter type error
+        // result holds the missing char
+        console.log("unpaired delimiter")
+        this.error = true;
       }
     }
   },
