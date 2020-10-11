@@ -57,7 +57,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .outer {
-  height: 100vh;
 }
 input {
   margin-bottom: 10px;
@@ -75,5 +74,9 @@ iframe {
 }
 input {
   height: 58px;
+}
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
 }
 </style>

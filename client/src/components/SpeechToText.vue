@@ -73,6 +73,12 @@ export default {
       sentences: []
     };
   },
+  watch: {
+    lang: function(newVal, oldVal) {
+      console.log("new: " + newVal + ", old: " + oldVal);
+      recognition.lang = newVal;
+    }
+  },
   methods: {
     checkCompatibility() {
       if (!recognition) {
@@ -99,7 +105,6 @@ export default {
       });
 
       recognition.addEventListener("speechend", () => {
-        console.log("on speechend event");
         this.speaking = false;
       });
 
@@ -112,7 +117,6 @@ export default {
       });
 
       recognition.addEventListener("end", () => {
-        console.log("on end event");
         if (this.runtimeTranscription !== "") {
           this.sentences.push(
             this.capitalizeFirstLetter(this.runtimeTranscription) + ". "

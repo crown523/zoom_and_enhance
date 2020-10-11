@@ -33,6 +33,7 @@ export default {
 }
 .outer1 {
   padding-top: 100px;
+  padding-bottom: 100px;
 }
 .row {
   margin-right: 0px;
