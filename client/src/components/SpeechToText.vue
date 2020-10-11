@@ -49,6 +49,7 @@
         Stop listening
       </div>
     </button>
+    {{ lang }}
   </div>
 </template>
 
@@ -72,6 +73,12 @@ export default {
       runtimeTranscription: "",
       sentences: []
     };
+  },
+  watch: {
+    lang: function(newVal, oldVal) {
+      console.log("new: " + newVal + ", old: " + oldVal);
+      recognition.lang = newVal;
+    }
   },
   methods: {
     checkCompatibility() {
@@ -99,7 +106,6 @@ export default {
       });
 
       recognition.addEventListener("speechend", () => {
-        console.log("on speechend event");
         this.speaking = false;
       });
 
@@ -112,7 +118,6 @@ export default {
       });
 
       recognition.addEventListener("end", () => {
-        console.log("on end event");
         if (this.runtimeTranscription !== "") {
           this.sentences.push(
             this.capitalizeFirstLetter(this.runtimeTranscription) + ". "
