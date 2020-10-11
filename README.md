@@ -1,6 +1,6 @@
 # Zoom and Enhance
 
-[Zoom and Enhance](https://zoomandenhance.herokuapp.com/) is an online solution for faster, mmore efficient note-taking during online lectures in the time of Covid-19, built by and for students.
+[Zoom and Enhance](https://zoomandenhance.herokuapp.com/) is an online solution for faster, more efficient note-taking during online lectures in the time of Covid-19, built by and for students.
 
 _This project is created by Livia Zhu, Anna Wei, and Kyle Liang for the 2020 Hack@Home hackathon._
 
