@@ -1,29 +1,23 @@
 <template>
   <div class="outer col-4">
     <div id="toolbar">
-      <b-button
-        v-b-tooltip.hover
-        title="Bold (Shift-B)"
+      <b-button v-b-tooltip.hover title="Bold (Shift-B)"
         dark
         @click.stop="bold()"
         icon
         :color="grey"
       >
-        Bold
+        Bold 
       </b-button>
-      <b-button
-        v-b-tooltip.hover
-        title="Italicize (Shift-I)"
+      <b-button v-b-tooltip.hover title="Italicize (Shift-I)"
         dark
         @click.stop="italicize()"
         icon
         :color="grey"
       >
-        Italicize
+        Italicize 
       </b-button>
-      <b-button
-        v-b-tooltip.hover
-        title="Highlight (Shift-H)"
+      <b-button v-b-tooltip.hover title="Highlight (Shift-H)"
         dark
         @click.stop="highlight()"
         icon
@@ -31,9 +25,7 @@
       >
         Highlight
       </b-button>
-      <b-button
-        v-b-tooltip.hover
-        title="Render (Shift-R)"
+      <b-button v-b-tooltip.hover title="Render (Shift-R)"
         dark
         @click.stop="render()"
         icon
