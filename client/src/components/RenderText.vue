@@ -57,8 +57,10 @@ export default {
 
 <style scoped>
 #render-text-area{
+    margin-top: 60px;
+    margin-left: 100px;
+    height: 60vh;
+    background: #f7f7f7;
     text-indent: 10px;
-    border-style: outset;
-    border-width: 1px;
 }
 </style>
