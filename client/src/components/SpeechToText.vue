@@ -75,11 +75,11 @@ export default {
         console.log("on end event");
         if (this.runtimeTranscription !== "") {
           this.sentences.push(
-            this.capitalizeFirstLetter(this.runtimeTranscription)
+            this.capitalizeFirstLetter(this.runtimeTranscription) + ". "
           );
           this.$store.commit(
             "updateText",
-            `${this.$store.state.text}. ${this.sentences.slice(-1)[0]}`
+            `${this.$store.state.text}${this.sentences.slice(-1)[0]}`
           );
         }
         this.runtimeTranscription = "";

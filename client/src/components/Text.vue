@@ -1,5 +1,5 @@
 <template>
-  <div class="outer col-4">
+  <div>
     <textarea
       id="message"
       rows="15"
