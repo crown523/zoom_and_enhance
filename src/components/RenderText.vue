@@ -1,13 +1,20 @@
 <template>
-  <div class="text-area rounded">
-    <p id="render-text-area"></p>
-  </div>
+    <div>
+      <div class="text-area rounded">
+          <p id="render-text-area"></p>
+      </div>
+      <app-key-term></app-key-term>
+    </div>
 </template>
 
 
 <script>
 import { eventBus } from "../main";
+import KeyTerm from "./KeyTerm.vue";
 export default {
+  components: {
+    appKeyTerm: KeyTerm
+  },
   data() {
     return {
       highlightColor: "",
