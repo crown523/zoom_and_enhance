@@ -1,13 +1,11 @@
 <template>
   <div id="app">
     <app-nav></app-nav>
-    <div class="row outer1" style="height: auto">
+    <div class="row outer1 flex-nowrap" style="height: auto">
       <div class="col-1"></div>
       <app-video-player></app-video-player>
-      <div class="outer col-4">
-        <app-text></app-text>
-        <app-render-text></app-render-text>
-      </div>
+      <app-text></app-text>
+      <app-render-text class="col-5" style="height: 100px;"></app-render-text>
       <div class="col-1"></div>
     </div>
   </div>
@@ -30,7 +28,10 @@ export default {
 </script>
 
 <style>
+#app {
+  overflow-y: scroll;
+}
 .outer1 {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 </style>
