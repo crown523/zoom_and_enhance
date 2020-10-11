@@ -5,7 +5,7 @@
         <b-button
           class="btn-light"
           v-b-tooltip.hover
-          title="Bold (Option/Alt-B)"
+          title="Bold (Control-B)"
           dark
           @click.stop="bold()"
           icon
@@ -26,7 +26,7 @@
         <b-button
           class="btn-light"
           v-b-tooltip.hover
-          title="Italicize (Option/Alt-I)"
+          title="Italicize (Control-I)"
           dark
           @click.stop="italicize()"
           icon
@@ -48,7 +48,7 @@
           class="btn-light"
           :style="{ backgroundColor: highlightColors[selectedColor] }"
           v-b-tooltip.hover
-          title="Highlight (Option/Alt-H)"
+          title="Highlight (Control-H)"
           dark
           @click.stop="highlight()"
           icon
@@ -87,7 +87,7 @@
       <b-button
         class="btn-success"
         v-b-tooltip.hover
-        title="Export (Option/Alt-E)"
+        title="Export"
         dark
         @click.stop="exportFile()"
         icon
@@ -113,7 +113,7 @@
       <b-button
         class="btn-info"
         v-b-tooltip.hover
-        title="Render (Option/Alt-R)"
+        title="Render (Control-R)"
         dark
         @click.stop="render()"
         icon
@@ -141,9 +141,6 @@
 </template>
 
 <script>
-import $ from "jquery";
-import { eventBus } from "../main";
-
 export default {
   data() {
     return {
@@ -159,36 +156,17 @@ export default {
     };
   },
   methods: {
-    addSymbol(symbol) {
-      //console.log(window.getSelection().toString());
-      let txtarea = document.getElementById("message");
-      let start = txtarea.selectionStart;
-      let end = txtarea.selectionEnd;
-      console.log(start);
-      console.log(end);
-      console.log(this.text.substring(start, end));
-      if (start != end) {
-        this.text =
-          this.text.substring(0, start) +
-          symbol +
-          this.text.substring(start, end) +
-          symbol +
-          this.text.substring(end, this.text.length);
-        return window.getSelection().toString();
-      }
-    },
     bold() {
-      this.addSymbol("*");
+      this.$emit("addSymbol", "*");
     },
     italicize() {
-      this.addSymbol("_");
+      this.$emit("addSymbol", "_");
     },
     highlight() {
-      this.addSymbol("/");
+      this.$emit("addSymbol", "|");
     },
     render() {
-      eventBus.renderText(this.highlightColors[this.selectedColor]);
-      $("#app").animate({ scrollLeft: 1000 }, 1000);
+      this.$emit("render", this.highlightColors[this.selectedColor]);
     },
     exportFile() {
       var blob = new Blob([this.text], {
