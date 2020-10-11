@@ -34,4 +34,8 @@ export default {
 .outer1 {
   padding-top: 100px;
 }
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
 </style>

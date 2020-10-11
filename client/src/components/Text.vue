@@ -1,10 +1,10 @@
 <template>
   <div class="outer">
     <app-toolbar @addSymbol="attemptToAddSymbol" @render="render"></app-toolbar>
-    <div class="alert alert-danger" v-if="error">this is an error</div>
+    <div class="alert alert-danger" v-if="error">{{ errorMessage }}</div>
     <textarea
       id="message"
-      rows="15"
+      rows="25"
       class="form-control"
       v-model="text"
     ></textarea>
@@ -19,7 +19,8 @@ import $ from "jquery";
 export default {
   data() {
     return {
-      error: false
+      error: false,
+      errorMessage: ""
     };
   },
   methods: {
@@ -117,12 +118,14 @@ export default {
             case "*":
               if (prev == "_" || prev == "|") {
                 if (stack.length - stack.indexOf(x) > 1) {
-                  return 't';
+                  return "t";
                 }
                 this.text =
-                this.text.slice(0, i) + prev +
-                this.text.charAt(i) + prev +
-                this.text.slice(i + 1);
+                  this.text.slice(0, i) +
+                  prev +
+                  this.text.charAt(i) +
+                  prev +
+                  this.text.slice(i + 1);
                 stack.push(prev);
                 i++;
               }
@@ -132,12 +135,14 @@ export default {
             case "_":
               if (prev == "*" || prev == "|") {
                 if (stack.length - stack.indexOf(x) > 1) {
-                  return 't';
+                  return "t";
                 }
                 this.text =
-                this.text.slice(0, i) + prev +
-                this.text.charAt(i) + prev +
-                this.text.slice(i + 1);
+                  this.text.slice(0, i) +
+                  prev +
+                  this.text.charAt(i) +
+                  prev +
+                  this.text.slice(i + 1);
                 stack.push(prev);
                 i++;
               }
@@ -147,12 +152,14 @@ export default {
             case "|":
               if (prev == "*" || prev == "_") {
                 if (stack.length - stack.indexOf(x) > 1) {
-                  return 't';
+                  return "t";
                 }
                 this.text =
-                this.text.slice(0, i) + prev +
-                this.text.charAt(i) + prev +
-                this.text.slice(i + 1);
+                  this.text.slice(0, i) +
+                  prev +
+                  this.text.charAt(i) +
+                  prev +
+                  this.text.slice(i + 1);
                 stack.push(prev);
                 i++;
               }
@@ -176,14 +183,14 @@ export default {
         this.error = false;
         eventBus.renderText(color);
         $("#app").animate({ scrollLeft: 1000 }, 1000);
-      } else if (result == 't') {
+      } else if (result == "t") {
         console.log("triple overlap type error");
+        this.errorMessage =
+          "Make sure there is no more than 1 unpaired delimiter between each delimiter pair (e.g. '* a _ a | a * ...' is invalid but '* a _ a *  ...' is valid).";
         this.error = true;
       } else {
-        //TODO: make these different
-        //missing delimiter type error
-        // result holds the missing char
-        console.log("unpaired delimiter")
+        console.log("unpaired delimiter");
+        this.errorMessage = 'Unpaired delimiter: "' + result + '".';
         this.error = true;
       }
     }
