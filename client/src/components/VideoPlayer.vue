@@ -26,12 +26,12 @@
         allow="microphone; camera"
       ></iframe>
     </div>
-    <speech-to-text></speech-to-text>
+    <app-interaction-buttons></app-interaction-buttons>
   </div>
 </template>
 
 <script>
-import SpeechToText from "./SpeechToText.vue";
+import InteractionButtons from "./InteractionButtons";
 
 export default {
   data() {
@@ -52,7 +52,7 @@ export default {
     }
   },
   components: {
-    speechToText: SpeechToText
+    appInteractionButtons: InteractionButtons
   }
 };
 </script>
