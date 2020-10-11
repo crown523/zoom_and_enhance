@@ -216,5 +216,6 @@ export default {
 button {
   padding-left: 8px;
   padding-right: 8px;
+  margin-top: 0px;
 }
 </style>
