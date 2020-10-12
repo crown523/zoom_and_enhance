@@ -198,7 +198,7 @@ export default {
   computed: {
     text: {
       get() {
-        return this.$store.state.text;
+        return this.$store.state.text + this.$store.state.interimText;
       },
       set(value) {
         this.$store.commit("updateText", value);

@@ -49,6 +49,7 @@
         Stop listening
       </div>
     </button>
+    {{ runtimeTranscription }}
   </div>
 </template>
 
@@ -100,36 +101,27 @@ export default {
       recognition.lang = this.lang;
       recognition.interimResults = true;
 
-      recognition.addEventListener("speechstart", () => {
-        this.speaking = true;
-      });
-
-      recognition.addEventListener("speechend", () => {
-        this.speaking = false;
-      });
+      var final_transcript = "";
 
       recognition.addEventListener("result", event => {
-        const text = Array.from(event.results)
-          .map(result => result[0])
-          .map(result => result.transcript)
-          .join("");
-        this.runtimeTranscription = text;
+        final_transcript = this.$store.state.text;
+        var interim_transcript = "";
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            final_transcript +=
+              this.capitalizeFirstLetter(event.results[i][0].transcript) + ". ";
+          } else {
+            interim_transcript += event.results[i][0].transcript;
+          }
+        }
+        this.$store.commit("updateText", final_transcript);
+        this.$store.commit("updateInterimText", interim_transcript);
       });
 
       recognition.addEventListener("end", () => {
-        if (this.runtimeTranscription !== "") {
-          this.sentences.push(
-            this.capitalizeFirstLetter(this.runtimeTranscription) + ". "
-          );
-          this.$store.commit(
-            "updateText",
-            `${this.$store.state.text}${this.sentences.slice(-1)[0]}`
-          );
-        }
-        this.runtimeTranscription = "";
-        recognition.stop();
         if (this.toggle) {
           // keep it going.
+          recognition.stop();
           recognition.start();
         }
       });
