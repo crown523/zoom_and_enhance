@@ -23,7 +23,6 @@ export default {
   },
   created() {
     eventBus.$on("renderClicked", color => {
-      console.log(this.$store.state.text);
       let textData = this.$store.state.text;
       let bStarted = false;
       let iStarted = false;

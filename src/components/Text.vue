@@ -4,10 +4,13 @@
     <div class="alert alert-danger" v-if="error">{{ errorMessage }}</div>
     <textarea
       id="message"
-      rows="20"
+      rows="18"
       class="form-control"
       v-model="text"
     ></textarea>
+    <div class="text-area">
+      <p id="interim-text">{{ interimText }} </p>
+    </div>
   </div>
 </template>
 
@@ -198,10 +201,15 @@ export default {
   computed: {
     text: {
       get() {
-        return this.$store.state.text + this.$store.state.interimText;
+        return this.$store.state.text;
       },
       set(value) {
         this.$store.commit("updateText", value);
+      }
+    },
+    interimText:{
+      get(){
+        return this.$store.state.interimText;
       }
     }
   },
@@ -249,5 +257,11 @@ textarea {
 }
 button {
   margin-right: 10px;
+}
+.text-area {
+  padding: 10px;
+}
+#interim-text{
+  color:grey;
 }
 </style>

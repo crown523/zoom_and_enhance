@@ -110,8 +110,10 @@ export default {
           if (event.results[i].isFinal) {
             final_transcript +=
               this.capitalizeFirstLetter(event.results[i][0].transcript) + ". ";
+              console.log("[final_transcript] += " + this.capitalizeFirstLetter(event.results[i][0].transcript) + ". ");
           } else {
             interim_transcript += event.results[i][0].transcript;
+            console.log("[interim_transcript] += " + event.results[i][0].transcript);
           }
         }
         this.$store.commit("updateText", final_transcript);
